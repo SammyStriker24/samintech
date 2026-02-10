@@ -1,12 +1,33 @@
-import { Mail, MapPin, Phone, Send } from "lucide-react";
-import { useState } from "react";
+import { Mail, MapPin, Phone, Send, Loader2 } from "lucide-react";
+import { useState, useRef } from "react";
+import emailjs from "@emailjs/browser";
+
+const SERVICE_ID = "service_0pm3gkb";
+const TEMPLATE_ID = "template_09zcv7b";
+const PUBLIC_KEY = "bpGJ0SYYpAYCiDXRS";
 
 const ContactSection = () => {
+  const formRef = useRef<HTMLFormElement>(null);
   const [form, setForm] = useState({ name: "", email: "", message: "" });
+  const [sending, setSending] = useState(false);
+  const [status, setStatus] = useState<"idle" | "success" | "error">("idle");
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    window.location.href = `mailto:saminmahmood233@gmail.com?subject=Portfolio Contact from ${form.name}&body=${form.message}`;
+    if (!formRef.current) return;
+
+    setSending(true);
+    setStatus("idle");
+
+    try {
+      await emailjs.sendForm(SERVICE_ID, TEMPLATE_ID, formRef.current, PUBLIC_KEY);
+      setStatus("success");
+      setForm({ name: "", email: "", message: "" });
+    } catch {
+      setStatus("error");
+    } finally {
+      setSending(false);
+    }
   };
 
   return (
@@ -52,9 +73,10 @@ const ContactSection = () => {
           </div>
 
           {/* Form */}
-          <form onSubmit={handleSubmit} className="space-y-4">
+          <form ref={formRef} onSubmit={handleSubmit} className="space-y-4">
             <input
               type="text"
+              name="from_name"
               placeholder="Your Name"
               value={form.name}
               onChange={(e) => setForm({ ...form, name: e.target.value })}
@@ -63,6 +85,7 @@ const ContactSection = () => {
             />
             <input
               type="email"
+              name="from_email"
               placeholder="Your Email"
               value={form.email}
               onChange={(e) => setForm({ ...form, email: e.target.value })}
@@ -70,6 +93,7 @@ const ContactSection = () => {
               required
             />
             <textarea
+              name="message"
               placeholder="Your Message"
               rows={4}
               value={form.message}
@@ -79,11 +103,19 @@ const ContactSection = () => {
             />
             <button
               type="submit"
-              className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-secondary text-secondary-foreground font-medium hover:bg-primary hover:text-primary-foreground transition-colors"
+              disabled={sending}
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-secondary text-secondary-foreground font-medium hover:bg-primary hover:text-primary-foreground transition-colors disabled:opacity-50"
             >
-              <Send size={16} />
-              Send Message
+              {sending ? <Loader2 size={16} className="animate-spin" /> : <Send size={16} />}
+              {sending ? "Sending..." : "Send Message"}
             </button>
+
+            {status === "success" && (
+              <p className="text-sm text-green-600 font-medium">Message sent successfully!</p>
+            )}
+            {status === "error" && (
+              <p className="text-sm text-destructive font-medium">Failed to send. Please try again.</p>
+            )}
           </form>
         </div>
       </div>
