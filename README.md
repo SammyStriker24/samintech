@@ -6,7 +6,7 @@
 
 **URL**: https://preview--samintech.lovable.app/
 
-**URL**: https://lovable.dev/projects/637f4519-fe2b-4033-99cd-58c6d145d865?magic_link=mc_34e395d0-d801-46d4-93e1-c13482d81f0d
+**URL**: https://lovable.dev/projects/637f4519-fe2b-4033-99cd-58c6d145d865?magic_link=mc_e5cc9d93-7aec-4d24-a34c-672543c75c5c
 
 ## How can I edit this code?
 
