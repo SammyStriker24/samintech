@@ -1,4 +1,4 @@
-import { Code, Database, Brain, Monitor, Terminal, FileText, Youtube, Languages } from "lucide-react";
+import { Code, Database, Brain, Monitor, Terminal, FileText, Youtube, Languages, PenTool, Table } from "lucide-react";
 
 const skills = [
   { name: "Python", icon: Code, level: 85 },
@@ -6,13 +6,15 @@ const skills = [
   { name: "Web Development", icon: Monitor, level: 75 },
   { name: "PHP & Database", icon: Database, level: 70 },
   { name: "Ubuntu Linux", icon: Terminal, level: 65 },
-  { name: "UI/UX Design (Figma)", icon: FileText, level: 60 },
+  { name: "UI/UX Design (Figma)", icon: PenTool, level: 60 },
 ];
 
 const otherSkills = [
   { icon: Languages, label: "Bangla (Native), English (Fluent)" },
   { icon: FileText, label: "Word, Excel, PowerPoint" },
   { icon: Youtube, label: "YouTube Teaching" },
+  { icon: PenTool, label: "Canva Design" },
+  { icon: Table, label: "Google Sheets (Data Entry)" },
 ];
 
 const SkillsSection = () => {

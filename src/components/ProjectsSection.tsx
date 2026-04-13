@@ -1,4 +1,4 @@
-import { Heart, Brain, Gamepad2, HelpCircle, Palette } from "lucide-react";
+import { Heart, Brain, Gamepad2, HelpCircle, Palette, Bug } from "lucide-react";
 
 const projects = [
   {
@@ -9,27 +9,33 @@ const projects = [
   },
   {
     icon: Brain,
-    title: "Deep Learning Stem Cell Differentiation",
-    desc: "Automated Stem Cell identification with deep learning, utilizing ML model and PCA.",
-    tags: ["Machine Learning", "Deep Learning"],
+    title: "Rice Leaf Disease Detection",
+    desc: "Automated rice leaf disease identification with deep learning, utilizing MobileNetV2 model.",
+    tags: ["Deep Learning", "MobileNetV2"],
   },
   {
     icon: Gamepad2,
     title: "Multiplayer Game (Unreal Engine)",
-    desc: "Designed and implemented multiplayer systems, server to client communication using Blueprints. Agile approach.",
+    desc: "Designed and implemented multiplayer systems, server to client communication using Blueprints. Agile approach for scope control.",
     tags: ["Game Dev", "Unreal Engine"],
   },
   {
     icon: HelpCircle,
     title: "Quiz App Python",
-    desc: "An automated quiz Python app for interactive learning.",
+    desc: "An automated quiz Python app for interactive learning experiences.",
     tags: ["Python", "Automation"],
   },
   {
     icon: Palette,
     title: "UI/UX Design",
-    desc: "Designed UI/UX on Figma for various projects and concepts.",
+    desc: "Designed UI/UX on Figma for various projects including vet scheduling and localization.",
     tags: ["Figma", "Design"],
+  },
+  {
+    icon: Bug,
+    title: "PHP Bug Tracking",
+    desc: "A bug tracking system built with PHP for managing and resolving software issues efficiently.",
+    tags: ["PHP", "Database"],
   },
 ];
 

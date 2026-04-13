@@ -1,9 +1,9 @@
 import heroPortrait from "@/assets/hero-portrait.png";
-import { ArrowDown, Code, Brain, Globe } from "lucide-react";
+import { ArrowDown, Code, Globe } from "lucide-react";
 
 const stats = [
-  { value: "5+", label: "Projects Done" },
-  { value: "3+", label: "Years Learning" },
+  { value: "6+", label: "Projects Done" },
+  { value: "4+", label: "Years Learning" },
   { value: "100%", label: "Dedication" },
 ];
 
@@ -16,14 +16,14 @@ const HeroSection = () => {
           <div className="lg:col-span-1 space-y-6 animate-fade-in">
             <div className="flex items-center gap-2 text-sm font-medium text-muted-foreground">
               <Code size={16} className="text-primary" />
-              <span>Software Engineer</span>
+              <span>Aspiring Software Developer</span>
             </div>
             <h1 className="text-5xl lg:text-6xl font-heading font-bold leading-tight">
               Hello, I'm{" "}
               <span className="text-primary">Md. Irtiza</span>
             </h1>
             <p className="text-muted-foreground text-lg leading-relaxed max-w-md">
-              Passionate about Python, Machine Learning, Web Development, and building impactful software solutions.
+              An aspiring Computer Science graduate with practical experience in Python, Machine Learning, Web Development, and building impactful software solutions.
             </p>
             <div className="flex items-center gap-4 pt-2">
               <a
@@ -51,9 +51,7 @@ const HeroSection = () => {
           {/* Center - Image */}
           <div className="lg:col-span-1 flex justify-center animate-fade-in" style={{ animationDelay: "0.2s" }}>
             <div className="relative">
-              {/* Decorative circle */}
               <div className="absolute inset-0 rounded-full bg-primary/20 scale-110" />
-              {/* Decorative lines */}
               <div className="absolute -top-4 -right-4 w-32 h-32">
                 {[...Array(5)].map((_, i) => (
                   <div
@@ -84,12 +82,6 @@ const HeroSection = () => {
                 <div className="text-sm text-muted-foreground">{stat.label}</div>
               </div>
             ))}
-            <div className="flex items-center gap-1 mt-2">
-              {[...Array(5)].map((_, i) => (
-                <Brain key={i} size={16} className="text-primary" />
-              ))}
-              <span className="text-xs text-muted-foreground ml-2">Continuous Learner</span>
-            </div>
           </div>
         </div>
       </div>
