@@ -1,75 +1,14 @@
 import { useState } from "react";
-import { Menu, X } from "lucide-react";
-
-const navLinks = [
-  { label: "Home", href: "#home" },
-  { label: "About", href: "#about" },
-  { label: "Skills", href: "#skills" },
-  { label: "Projects", href: "#projects" },
-  { label: "Contact", href: "#contact" },
-];
-
+import { Menu, X, ArrowUpRight } from "lucide-react";
+import { Button } from "@/components/ui/button";
+const links = [{ label: "About", href: "#about" }, { label: "Skills", href: "#skills" }, { label: "Services", href: "#services" }, { label: "Projects", href: "#projects" }];
 const Navbar = () => {
   const [open, setOpen] = useState(false);
-
-  return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border">
-      <div className="container mx-auto flex items-center justify-between py-4 px-4">
-        <a href="#home" className="font-heading text-2xl font-bold tracking-tight">
-          <span className="text-primary">Md.</span> Irtiza
-        </a>
-
-        {/* Desktop */}
-        <ul className="hidden md:flex items-center gap-8">
-          {navLinks.map((link) => (
-            <li key={link.href}>
-              <a
-                href={link.href}
-                className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors"
-              >
-                {link.label}
-              </a>
-            </li>
-          ))}
-        </ul>
-
-        <a
-          href="#contact"
-          className="hidden md:inline-flex items-center px-5 py-2.5 rounded-full bg-secondary text-secondary-foreground text-sm font-medium hover:bg-primary hover:text-primary-foreground transition-colors"
-        >
-          Contact
-        </a>
-
-        {/* Mobile toggle */}
-        <button
-          onClick={() => setOpen(!open)}
-          className="md:hidden p-2 text-foreground"
-          aria-label="Toggle menu"
-        >
-          {open ? <X size={24} /> : <Menu size={24} />}
-        </button>
-      </div>
-
-      {/* Mobile menu */}
-      {open && (
-        <div className="md:hidden bg-background border-b border-border px-4 pb-4">
-          <ul className="flex flex-col gap-3">
-            {navLinks.map((link) => (
-              <li key={link.href}>
-                <a
-                  href={link.href}
-                  onClick={() => setOpen(false)}
-                  className="block py-2 text-sm font-medium text-muted-foreground hover:text-primary transition-colors"
-                >
-                  {link.label}
-                </a>
-              </li>
-            ))}
-          </ul>
-        </div>
-      )}
-    </nav>
-  );
+  return <nav className="fixed inset-x-0 top-0 z-50 bg-background/95 backdrop-blur-md border-b border-border"><div className="container px-6 flex justify-between items-center h-20">
+    <a href="#home" className="font-heading text-xl font-bold flex items-center gap-2"><span className="text-accent text-3xl" aria-hidden="true">✳</span> Md. Irtiza<span className="text-primary">.</span></a>
+    <div className="hidden md:flex gap-7">{links.map(link => <a key={link.href} href={link.href} className="text-sm text-muted-foreground hover:text-primary transition-colors">{link.label}</a>)}</div>
+    <Button asChild variant="outline" className="hidden md:inline-flex rounded-full"><a href="#contact">Let’s talk <ArrowUpRight /></a></Button>
+    <Button variant="ghost" size="icon" onClick={() => setOpen(!open)} className="md:hidden" aria-label={open ? "Close menu" : "Open menu"} aria-expanded={open}>{open ? <X /> : <Menu />}</Button>
+  </div>{open && <div className="md:hidden border-t border-border px-6 py-4">{[...links, { label: "Contact", href: "#contact" }].map(link => <a key={link.href} href={link.href} onClick={() => setOpen(false)} className="block py-3 text-sm">{link.label}</a>)}</div>}</nav>;
 };
-
 export default Navbar;
