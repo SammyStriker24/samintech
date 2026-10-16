@@ -1,0 +1,4 @@
+- [x] Refresh portfolio from the image and CV, including services and real contact details.
+- [x] Connect EmailJS and safely store contact submissions.
+- [x] Verify portfolio layout, links, and a real contact submission.
+- [ ] Restore EmailJS delivery — owner must reconnect the Gmail account in EmailJS; provider returned an invalid-grant error.

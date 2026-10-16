@@ -1,27 +1,25 @@
-@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap');
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
   :root {
-    --background: 40 33% 96%;
+    --background: 60 20% 99%;
     --foreground: 220 20% 12%;
 
-    --card: 40 25% 94%;
+    --card: 150 18% 95%;
     --card-foreground: 220 20% 12%;
 
-    --popover: 40 33% 96%;
+    --popover: 60 20% 99%;
     --popover-foreground: 220 20% 12%;
 
-    --primary: 38 92% 50%;
-    --primary-foreground: 220 20% 12%;
+    --primary: 158 65% 26%;
+    --primary-foreground: 60 20% 99%;
 
     --secondary: 220 20% 12%;
     --secondary-foreground: 40 33% 96%;
 
-    --muted: 40 15% 90%;
+    --muted: 150 12% 91%;
     --muted-foreground: 220 10% 45%;
 
     --accent: 38 92% 50%;
@@ -30,11 +28,11 @@
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 40 15% 85%;
-    --input: 40 15% 85%;
-    --ring: 38 92% 50%;
+    --border: 150 10% 85%;
+    --input: 150 10% 85%;
+    --ring: 158 65% 26%;
 
-    --radius: 0.75rem;
+    --radius: 0.5rem;
 
     --sidebar-background: 0 0% 98%;
     --sidebar-foreground: 240 5.3% 26.1%;
@@ -46,7 +44,7 @@
     --sidebar-ring: 217.2 91.2% 59.8%;
 
     --font-heading: 'Space Grotesk', sans-serif;
-    --font-body: 'Inter', sans-serif;
+    --font-body: 'DM Sans', sans-serif;
   }
 
   .dark {
@@ -88,7 +86,9 @@
   body {
     @apply bg-background text-foreground;
     font-family: var(--font-body);
+    letter-spacing: 0;
   }
+  html { scroll-behavior: smooth; scroll-padding-top: 90px; }
 
   h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-heading);
@@ -96,7 +96,13 @@
 }
 
 @layer utilities {
-  .text-gradient {
-    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary to-amber-600;
+  .section-space { @apply py-20 lg:py-24; }
+  .eyebrow { @apply text-xs font-medium text-primary mb-4; }
+  .section-title { @apply text-3xl md:text-4xl font-heading font-semibold leading-tight; }
+  .portrait-frame { border-radius: 46% 46% 8px 8px; }
+  .hero-grid { min-height: min(680px, calc(100svh - 76px)); }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after { animation: none !important; transition: none !important; }
   }
 }
