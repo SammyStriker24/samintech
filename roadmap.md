@@ -1,0 +1,3 @@
+- [ ] Refresh portfolio from the image and CV, including services and real contact details.
+- [ ] Connect EmailJS and safely store contact submissions.
+- [ ] Verify portfolio layout, links, and a real contact submission.
